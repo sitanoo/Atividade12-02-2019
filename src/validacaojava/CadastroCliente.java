@@ -5,6 +5,7 @@
  */
 package validacaojava;
 
+import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
 import javax.swing.JOptionPane;
@@ -20,9 +21,31 @@ public class CadastroCliente extends javax.swing.JPanel {
      */
     public CadastroCliente() {
         initComponents();
-        comboSexo.addItem("Masculino");
-        comboSexo.addItem("Feminino");
-        comboSexo.addItem("Bruno");
+        comboSexo.addItem("Acre");
+        comboSexo.addItem("Alagoas");
+        comboSexo.addItem("Amazonas");
+        comboSexo.addItem("Bahia");
+        comboSexo.addItem("Ceará");
+        comboSexo.addItem("Distrito Federal");
+        comboSexo.addItem("Espírito Santo");
+        comboSexo.addItem("Goiás");
+        comboSexo.addItem("Maranhão");
+        comboSexo.addItem("Mato Grosso");
+        comboSexo.addItem("Mato Grosso do Sul");
+        comboSexo.addItem("Minas Gerais");
+        comboSexo.addItem("Pará");
+        comboSexo.addItem("Paraíba");
+        comboSexo.addItem("Paraná");
+        comboSexo.addItem("Piauí");
+        comboSexo.addItem("Rio de Janeiro");
+        comboSexo.addItem("Rio Grande do Norte");
+        comboSexo.addItem("Rio Grande do Sul");
+        comboSexo.addItem("Rondônia");
+        comboSexo.addItem("Roraima");
+        comboSexo.addItem("Santa Catarina");
+        comboSexo.addItem("São Paulo");
+        comboSexo.addItem("Sergipe");
+        comboSexo.addItem("Tocantins");      
     }
 
     /**
@@ -35,34 +58,68 @@ public class CadastroCliente extends javax.swing.JPanel {
     private void initComponents() {
 
         jProgressBar1 = new javax.swing.JProgressBar();
-        labelNome = new javax.swing.JLabel();
-        labelCPF = new javax.swing.JLabel();
+        labelNomeEmpresa = new javax.swing.JLabel();
+        labelCNPJ = new javax.swing.JLabel();
         labelTelefone = new javax.swing.JLabel();
         labelCadastro = new javax.swing.JLabel();
-        cpNome = new javax.swing.JTextField();
+        cpNomeEmpresa = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
         comboSexo = new javax.swing.JComboBox<>();
-        labelSexo = new javax.swing.JLabel();
-        cpCpf = new javax.swing.JFormattedTextField();
+        labelUf = new javax.swing.JLabel();
+        cpCnpj = new javax.swing.JFormattedTextField();
         cpTelefone = new javax.swing.JFormattedTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        labelInscricao = new javax.swing.JLabel();
+        cpInscricao = new javax.swing.JTextField();
+        labelData = new javax.swing.JLabel();
+        cpData = new javax.swing.JFormattedTextField();
+        cpCidade = new javax.swing.JTextField();
+        labelCidade = new javax.swing.JLabel();
+        labelCEP = new javax.swing.JLabel();
+        labelEndereco = new javax.swing.JLabel();
+        cpEndereco = new javax.swing.JTextField();
+        labelBairro = new javax.swing.JLabel();
+        cpBairro = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        labelEmail = new javax.swing.JLabel();
+        cpEmail = new javax.swing.JTextField();
+        labelCelular = new javax.swing.JLabel();
+        cpCelular = new javax.swing.JFormattedTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        cpInstagram = new javax.swing.JTextField();
+        labelFacebook = new javax.swing.JLabel();
+        labelInstagram = new javax.swing.JLabel();
+        cpFacebook = new javax.swing.JTextField();
+        labelRenda = new javax.swing.JLabel();
+        cpCPF = new javax.swing.JFormattedTextField();
+        labelResponsavel = new javax.swing.JLabel();
+        labelCPF = new javax.swing.JLabel();
+        cpResponsavel = new javax.swing.JTextField();
+        labelCelResp = new javax.swing.JLabel();
+        cpCelResp = new javax.swing.JFormattedTextField();
+        cpRenda = new javax.swing.JTextField();
+        cpCEP = new javax.swing.JFormattedTextField();
 
-        labelNome.setText("Nome:");
+        labelNomeEmpresa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNomeEmpresa.setText("Empresa:");
 
-        labelCPF.setText("CPF:");
+        labelCNPJ.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCNPJ.setText("CNPJ:");
 
+        labelTelefone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelTelefone.setText("Telefone:");
 
-        labelCadastro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        labelCadastro.setText("Cadastro de Cliente");
+        labelCadastro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelCadastro.setText("Cadastro");
 
-        cpNome.addActionListener(new java.awt.event.ActionListener() {
+        cpNomeEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpNomeActionPerformed(evt);
+                cpNomeEmpresaActionPerformed(evt);
             }
         });
-        cpNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        cpNomeEmpresa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                cpNomeKeyPressed(evt);
+                cpNomeEmpresaKeyPressed(evt);
             }
         });
 
@@ -85,16 +142,203 @@ public class CadastroCliente extends javax.swing.JPanel {
 
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(selecione)"}));
 
-        labelSexo.setText("Sexo:");
+        labelUf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelUf.setText("UF:");
 
         try {
-            cpCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            cpCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cpCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpCnpjActionPerformed(evt);
+            }
+        });
+
+        try {
+            cpTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        labelInscricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelInscricao.setText("Inscrição Estadual:");
+
+        cpInscricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpInscricaoActionPerformed(evt);
+            }
+        });
+        cpInscricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpInscricaoKeyPressed(evt);
+            }
+        });
+
+        labelData.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelData.setText("Data de inscrição:");
+
         try {
-            cpTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
+            cpData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        cpCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpCidadeActionPerformed(evt);
+            }
+        });
+        cpCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpCidadeKeyPressed(evt);
+            }
+        });
+
+        labelCidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCidade.setText("Cidade:");
+
+        labelCEP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCEP.setText("CEP:");
+
+        labelEndereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelEndereco.setText("Endereço:");
+
+        cpEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpEnderecoActionPerformed(evt);
+            }
+        });
+        cpEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpEnderecoKeyPressed(evt);
+            }
+        });
+
+        labelBairro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelBairro.setText("Bairro:");
+
+        cpBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpBairroActionPerformed(evt);
+            }
+        });
+        cpBairro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpBairroKeyPressed(evt);
+            }
+        });
+
+        labelEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelEmail.setText("E-mail:");
+
+        cpEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpEmailActionPerformed(evt);
+            }
+        });
+        cpEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpEmailKeyPressed(evt);
+            }
+        });
+
+        labelCelular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCelular.setText("Celular Empresarial:");
+
+        try {
+            cpCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cpCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpCelularActionPerformed(evt);
+            }
+        });
+
+        cpInstagram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpInstagramActionPerformed(evt);
+            }
+        });
+        cpInstagram.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpInstagramKeyPressed(evt);
+            }
+        });
+
+        labelFacebook.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelFacebook.setText("Link do facebook:");
+
+        labelInstagram.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelInstagram.setText("Link do Instagram:");
+
+        cpFacebook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpFacebookActionPerformed(evt);
+            }
+        });
+        cpFacebook.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpFacebookKeyPressed(evt);
+            }
+        });
+
+        labelRenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelRenda.setText("Renda:");
+
+        try {
+            cpCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        labelResponsavel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelResponsavel.setText("Responsável:");
+
+        labelCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCPF.setText("CPF:");
+
+        cpResponsavel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpResponsavelActionPerformed(evt);
+            }
+        });
+        cpResponsavel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpResponsavelKeyPressed(evt);
+            }
+        });
+
+        labelCelResp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelCelResp.setText("Celular:");
+
+        try {
+            cpCelResp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cpCelResp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpCelRespActionPerformed(evt);
+            }
+        });
+
+        cpRenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpRendaActionPerformed(evt);
+            }
+        });
+        cpRenda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cpRendaKeyPressed(evt);
+            }
+        });
+
+        try {
+            cpCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -104,104 +348,236 @@ public class CadastroCliente extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(labelCPF)
-                        .addGap(18, 18, 18)
-                        .addComponent(cpCpf))
+                        .addComponent(jSeparator2)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(labelInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cpCnpj)
+                                    .addComponent(cpNomeEmpresa)
+                                    .addComponent(cpInscricao)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(labelData)
+                                .addGap(18, 18, 18)
+                                .addComponent(cpData)))
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelTelefone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cpTelefone))
+                                .addComponent(labelRenda)
+                                .addGap(133, 133, 133)
+                                .addComponent(cpRenda))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(labelSexo)
+                                .addComponent(labelCelResp)
+                                .addGap(132, 132, 132)
+                                .addComponent(cpCelResp))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelResponsavel))
+                                .addGap(96, 96, 96)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cpCPF)
+                                    .addComponent(cpResponsavel))))
+                        .addGap(20, 20, 20))
+                    .addComponent(jSeparator3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelNomeEmpresa)
+                                    .addComponent(labelUf)
+                                    .addComponent(labelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelEmail)
+                                            .addComponent(labelTelefone))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cpTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                            .addComponent(cpEmail, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelEndereco)
+                                            .addComponent(labelCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(64, 64, 64)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cpCEP, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(cpCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                                .addComponent(comboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(cpEndereco)
+                                                .addComponent(cpBairro)))))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelInstagram)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cpInstagram))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelFacebook)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cpFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCelular)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 15, Short.MAX_VALUE)
-                        .addComponent(labelCadastro)
-                        .addGap(56, 56, 56))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cpNome)
-                        .addContainerGap())))
+                                .addComponent(cpCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 16, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(btSalvar)
+                .addGap(261, 261, 261)
+                .addComponent(labelCadastro)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(245, 245, 245))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator4)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(labelCadastro)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cpNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelData, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cpResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelCelResp, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpCelResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelRenda, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpRenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelUf))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cpCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelCidade)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cpFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelFacebook))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelInstagram, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpInstagram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCEP))
+                    .addComponent(cpCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelEndereco)
+                            .addComponent(cpEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelBairro)
+                            .addComponent(cpBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cpEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTelefone)
                     .addComponent(cpTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSexo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                    .addComponent(labelCelular)
+                    .addComponent(cpCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cpNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpNomeActionPerformed
+    private void cpNomeEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpNomeEmpresaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cpNomeActionPerformed
+    }//GEN-LAST:event_cpNomeEmpresaActionPerformed
 
-    private void cpNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpNomeKeyPressed
-        System.out.println("Você digitou: "+cpNome.getText());
-    }//GEN-LAST:event_cpNomeKeyPressed
+    private void cpNomeEmpresaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpNomeEmpresaKeyPressed
+        System.out.println("Você digitou: "+cpNomeEmpresa.getText());
+    }//GEN-LAST:event_cpNomeEmpresaKeyPressed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         if(this.validarCampos()){
             JOptionPane.showMessageDialog(null, "Campos Preenchidos Corretamente!");
-            
-            JOptionPane.showMessageDialog(null, comboSexo.getSelectedItem());
+ 
         }
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private boolean validarCampos(){
-        CPFValidator validator = new CPFValidator();
+        CNPJValidator avalidator = new CNPJValidator();
         
         try {
-            validator.assertValid(cpCpf.getText());
             
-            String nome = cpNome.getText();
-            String telefone = cpTelefone.getText();
+            avalidator.assertValid(cpCnpj.getText());
             
-            if(telefone.trim().equals("")){
-                JOptionPane.showMessageDialog(null, "Informe o telefone");
+            String nome = cpNomeEmpresa.getText();
+            String dataInscricao = cpData.getText();
+            String dataFormatada = dataInscricao.replaceAll("/","");
+            String cnpj = cpCnpj.getText();
+            String inscricaoEstadual = cpInscricao.getText();
+            
+            if(dataFormatada.trim().equals("")){
+               
+                JOptionPane.showMessageDialog(null, "Informe a data de inscrição");
                 return false;    
             }else if(nome.trim().equals("")){
-                JOptionPane.showMessageDialog(null, "Informe o nome");
+                JOptionPane.showMessageDialog(null, "Informe o nome da empresa");
                 return false;               
-            }else if (comboSexo.getSelectedItem().equals("(selecione)")){
-                JOptionPane.showMessageDialog(null, "Selecione o sexo");
+            }else if (inscricaoEstadual.trim().equals("")){
+                JOptionPane.showMessageDialog(null, "Informe a inscrição estadual");
                 return false;
-            } else {
+            }else {
                 return true;
             }
             
@@ -211,7 +587,8 @@ public class CadastroCliente extends javax.swing.JPanel {
             
             
         } catch (InvalidStateException e) { // exception lançada quando o documento é inválido
-            JOptionPane.showMessageDialog(null, "O CPF Informado Está Inválido!"+e.getInvalidMessages());
+                JOptionPane.showMessageDialog(null, "O CNPJ Informado Está Inválido!"+e.getInvalidMessages());
+            
             return false;
         }
         
@@ -226,18 +603,133 @@ public class CadastroCliente extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btSalvarMouseMoved
 
+    private void cpInscricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpInscricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpInscricaoActionPerformed
+
+    private void cpInscricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpInscricaoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpInscricaoKeyPressed
+
+    private void cpCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCidadeActionPerformed
+
+    private void cpCidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpCidadeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCidadeKeyPressed
+
+    private void cpEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpEnderecoActionPerformed
+
+    private void cpEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpEnderecoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpEnderecoKeyPressed
+
+    private void cpBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpBairroActionPerformed
+
+    private void cpBairroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpBairroKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpBairroKeyPressed
+
+    private void cpEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpEmailActionPerformed
+
+    private void cpEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpEmailKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpEmailKeyPressed
+
+    private void cpCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCelularActionPerformed
+
+    private void cpInstagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpInstagramActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpInstagramActionPerformed
+
+    private void cpInstagramKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpInstagramKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpInstagramKeyPressed
+
+    private void cpFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpFacebookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpFacebookActionPerformed
+
+    private void cpFacebookKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpFacebookKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpFacebookKeyPressed
+
+    private void cpResponsavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpResponsavelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpResponsavelActionPerformed
+
+    private void cpResponsavelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpResponsavelKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpResponsavelKeyPressed
+
+    private void cpCelRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCelRespActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCelRespActionPerformed
+
+    private void cpRendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpRendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpRendaActionPerformed
+
+    private void cpRendaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpRendaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpRendaKeyPressed
+
+    private void cpCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCnpjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCnpjActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSalvar;
     private javax.swing.JComboBox<String> comboSexo;
-    private javax.swing.JFormattedTextField cpCpf;
-    private javax.swing.JTextField cpNome;
+    private javax.swing.JTextField cpBairro;
+    private javax.swing.JFormattedTextField cpCEP;
+    private javax.swing.JFormattedTextField cpCPF;
+    private javax.swing.JFormattedTextField cpCelResp;
+    private javax.swing.JFormattedTextField cpCelular;
+    private javax.swing.JTextField cpCidade;
+    private javax.swing.JFormattedTextField cpCnpj;
+    private javax.swing.JFormattedTextField cpData;
+    private javax.swing.JTextField cpEmail;
+    private javax.swing.JTextField cpEndereco;
+    private javax.swing.JTextField cpFacebook;
+    private javax.swing.JTextField cpInscricao;
+    private javax.swing.JTextField cpInstagram;
+    private javax.swing.JTextField cpNomeEmpresa;
+    private javax.swing.JTextField cpRenda;
+    private javax.swing.JTextField cpResponsavel;
     private javax.swing.JFormattedTextField cpTelefone;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel labelBairro;
+    private javax.swing.JLabel labelCEP;
+    private javax.swing.JLabel labelCNPJ;
     private javax.swing.JLabel labelCPF;
     private javax.swing.JLabel labelCadastro;
-    private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelSexo;
+    private javax.swing.JLabel labelCelResp;
+    private javax.swing.JLabel labelCelular;
+    private javax.swing.JLabel labelCidade;
+    private javax.swing.JLabel labelData;
+    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelEndereco;
+    private javax.swing.JLabel labelFacebook;
+    private javax.swing.JLabel labelInscricao;
+    private javax.swing.JLabel labelInstagram;
+    private javax.swing.JLabel labelNomeEmpresa;
+    private javax.swing.JLabel labelRenda;
+    private javax.swing.JLabel labelResponsavel;
     private javax.swing.JLabel labelTelefone;
+    private javax.swing.JLabel labelUf;
     // End of variables declaration//GEN-END:variables
 }
