@@ -9,7 +9,7 @@ public class ValidacaoJava {
             JFrame frame = new JFrame("Cadastro de cliente");
             CadastroCliente painelCadastro = new CadastroCliente();
             
-            frame.setSize(280,300);
+            frame.setSize(800,580);
             frame.add(painelCadastro);
             frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
             frame.setVisible(true);

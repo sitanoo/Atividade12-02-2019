@@ -8,6 +8,9 @@ package validacaojava;
 import br.com.caelum.stella.validation.CNPJValidator;
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.caelum.stella.validation.InvalidStateException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -165,11 +168,6 @@ public class CadastroCliente extends javax.swing.JPanel {
         labelInscricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelInscricao.setText("Inscrição Estadual:");
 
-        cpInscricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpInscricaoActionPerformed(evt);
-            }
-        });
         cpInscricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cpInscricaoKeyPressed(evt);
@@ -474,7 +472,7 @@ public class CadastroCliente extends javax.swing.JPanel {
                                     .addComponent(cpResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cpCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -524,9 +522,9 @@ public class CadastroCliente extends javax.swing.JPanel {
                         .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cpEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelTelefone)
-                    .addComponent(cpTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cpTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTelefone))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCelular)
@@ -544,14 +542,37 @@ public class CadastroCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_cpNomeEmpresaActionPerformed
 
     private void cpNomeEmpresaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpNomeEmpresaKeyPressed
-        System.out.println("Você digitou: "+cpNomeEmpresa.getText());
+    
     }//GEN-LAST:event_cpNomeEmpresaKeyPressed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        EmailWrapper enviar = new EmailWrapper();
+        ManipulacaoDeArquivos salvar = new ManipulacaoDeArquivos("gravacao","teste.doc");
+        String aux1;
+        String aux2;
+        String aux3;
+        String aux4;
+        String aux5;
+        
+        aux1 = "Nome da empresa é:  "+cpNomeEmpresa.getText()+"  de CNPJ:  "+cpCnpj.getText()+"  Inscrição estadual:  "+cpInscricao.getText()+"  Inscrito na data:  "+cpData.getText();
+        aux2 = "Estado:  "+comboSexo.getSelectedItem()+"  Cidade:  "+cpCidade.getText()+"  CEP:  "+cpCEP.getText()+"  Endereço:  "+cpEndereco.getText()+"  Bairro:  "+cpBairro.getText();
+        aux3 = "Nome do responsável:  "+cpResponsavel.getText()+"  CPF:  "+cpCPF.getText()+"  Celular:  "+cpCelResp.getText()+"  Renda: R$"+cpRenda.getText();
+        aux4 = "Email:  "+cpEmail.getText()+"  Telefone:  "+cpTelefone.getText()+"  Celular:  "+cpCelular.getText();
+        aux5 = "Link do Facebook:  "+cpFacebook.getText()+"  Link do Instagram  "+cpInstagram.getText();
+        
         if(this.validarCampos()){
             JOptionPane.showMessageDialog(null, "Campos Preenchidos Corretamente!");
- 
+            try {
+                salvar.sobreEscrever(aux1+"\n"+aux2+"\n"+aux3+"\n"+aux4+"\n"+aux5);
+                enviar.enviar("eduardo_tinti@estudante.sc.senai.br", "eduardo_tinti@estudante.sc.senai.br", "Envio de email", aux1+"\n"+aux2+"\n"+aux3+"\n"+aux4+"\n"+aux5);
+                JOptionPane.showMessageDialog(null, "Email Enviado!!");
+            } catch (IOException ex) {
+                Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Houve problemas ao enviar o email!");
+            }
         }
+        
+        
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private boolean validarCampos(){
@@ -602,10 +623,6 @@ public class CadastroCliente extends javax.swing.JPanel {
     private void btSalvarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseMoved
         
     }//GEN-LAST:event_btSalvarMouseMoved
-
-    private void cpInscricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpInscricaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpInscricaoActionPerformed
 
     private void cpInscricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpInscricaoKeyPressed
         // TODO add your handling code here:
